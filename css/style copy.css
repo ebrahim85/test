@@ -1,0 +1,277 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0px;
+    box-sizing: inherit;
+    
+}
+html {
+    font-size: 62.5%; /* font size=10px the default browser font size is 16px*/
+}
+/*
+ * ─── BODY ───────────────────────────────────────────────────────────────────────
+ */
+body {
+    font-family: "lato", sans-serif;
+    font-weight: 400;
+  /* font-size: 16px; */
+    color: #777777;
+    line-height: 1.7;
+    padding: 3rem;
+    box-sizing: border-box;
+}
+
+/*
+  * ─── HEADER ─────────────────────────────────────────────────────────────────────
+ */
+.header {
+    height: 95vh;
+    background-image: linear-gradient(to right bottom, 
+     rgba( 126, 213, 111, 0.6),
+     rgba( 40, 180, 131, 0.8)),
+     url(../img/hero.jpg); 
+    position: relative;
+    
+
+    /* https://cssgradient.io/gradient-backgrounds/    // great template for my website
+       https://cssgradient.io */
+    background-size: cover;
+
+    /* https://www.w3schools.com/cssref/css3_pr_background-size.asp 
+       https://developer.mozilla.org/en-US/docs/Web/CSS/background-size  */
+    background-position: top;
+
+    /* https://developer.mozilla.org/en-US/docs/Web/CSS/background-position */
+    -webkit-clip-path: polygon( 0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon( 0 0, 100% 0, 100% 75vh, 0 100%);
+
+    /* https://css-tricks.com/almanac/properties/c/clip/ 
+       https://bennettfeely.com/clippy/  */
+    
+}
+.header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+
+    /* https://www.w3schools.com/css/css_positioning.asp 
+    https://developer.mozilla.org/en-US/docs/Web/CSS/position
+    https://dzone.com/articles/css-position-relative-vs-position-absolute 
+    https://css-tricks.com/almanac/properties/p/position/ */
+}  
+
+.header__logo {
+    height: 3.5rem;
+    /*animation-name: Fade-in-out;
+    animation-duration: 1s;
+    animation-delay: .2s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+    */
+}
+
+.header__logo:hover {
+    animation-name: FadeInOutHover;
+    animation-duration: 1s;
+    animation-delay: .2s;
+    animation-timing-function: ease-out;
+}
+
+.header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    transition: all 0.2s;
+
+    /* https://www.w3schools.com/cssref/css3_pr_transform.asp
+      https://developer.mozilla.org/en-US/docs/Web/CSS/transform  */
+}
+
+.heading-primary {
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-bottom: 6rem;
+    backface-visibility: hidden; /* stops shaky transition */
+    /* https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform   */
+}
+
+.heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+
+    /* https://www.w3schools.com/css/css_display_visibility.asp
+     https://css-tricks.com/almanac/properties/d/display/
+     https://www.w3schools.com/cssref/pr_class_display.asp */
+
+     animation-name: MoveInLeft;
+     animation-duration: 2s;
+     animation-delay: 0.5s;
+     animation-iteration-count: 1;
+     animation-timing-function: ease-out;
+}
+
+.heading-primary--sub {
+    text-align: center;
+    display: block;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 1.4rem;
+    animation-name: MoveInRight;
+    animation-duration: 2s;
+    animation-delay: 0.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+}
+
+@keyframes MoveInLeft {
+
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+
+    80% {
+        transform: translateX(1rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0rem);
+    }
+
+    
+    /* https://www.w3schools.com/cssref/css3_pr_transform.asp */ 
+    
+}   
+
+
+@keyframes MoveInRight {
+
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+
+    80% {
+        transform: translateX(-1rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0rem);
+    }
+}   
+@keyframes Fade-in-out {
+    0% {
+        opacity: 0.1;
+    }
+
+    80% {
+        opacity: 0.5;
+        transform: translateY(-1rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0rem);
+    }
+}
+@keyframes FadeInOutHover {
+    0% {
+        opacity: 0.1;
+        transform: translateY(0rem) scale(.5 .5);
+        
+    }
+
+    80% {
+        opacity: 0.5;
+        transform: scale(1.1, 1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0rem);
+        transform: scale(1, 1);
+    }
+}
+    /* https://www.w3schools.com/css/css_pseudo_classes.asp */
+.btn:link,
+.btn:visited{
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: all .2s;
+    position: relative;
+    font-size: 1.5rem;
+    /* https://www.w3schools.com/cssref/css3_pr_transition.asp */
+}
+
+.btn--white {
+    background-color: #ffffff;
+    padding: 1.5rem 4rem;
+    border-radius: 10rem;
+    color: #777777;
+
+}
+.btn:hover {
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, .2);
+    transform: translateY(-3px); 
+}
+
+.btn:active {
+    box-shadow: 0 .5rem .5rem rgba(0, 0, 0, .2);
+    transform: translateY(-.1rem); 
+}
+
+.btn::after {
+ 
+    content: "";    /* Always should be applied , otherwise pseduo element won't work */
+    display: inline-block; /* because the main button displayed as inline-block pseduo element must be inline-block too */
+    height: 100%;
+    width: 100%;
+    position: absolute; /* relative position should be applied into main button */
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+
+}
+ .btn--white::after {
+     border-radius: 10rem;
+     background-color: #fff;
+ }
+
+ .btn:hover::after {
+     transform: scale(1.4,1.6);  /* in order to use transform, a transition duration should be applied to the parent( .btn::after) */
+     opacity: 0;
+    }
+
+    .btn--animated {             /* in order to use startup animation just on this button*/
+        animation: MoveInBottom 1.9s ease-out .75s;
+        animation-fill-mode: backwards; /* first when the page loads makes th button hidden and then reveals that. backwards applies 0% condition and forwards applies 100% keyframe condition  */
+    }   /* https://www.w3schools.com/cssref/css3_pr_animation-fill-mode.asp */
+
+    @keyframes MoveInBottom {
+        0% {
+            opacity: 0;
+            transform: translateY(10rem);
+        }
+    
+        80% {
+            opacity: 0.9;
+            transform: translateY(-1rem)
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0rem);
+        }
+    }
